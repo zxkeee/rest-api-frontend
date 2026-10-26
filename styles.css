@@ -40,10 +40,15 @@ header h1 {
     font-weight: 600;
 }
 
-header h1::before {
-    content: "> ";
+header h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    flex-shrink: 0;
     color: var(--mark);
-    font-family: var(--mono);
 }
 
 header p {
