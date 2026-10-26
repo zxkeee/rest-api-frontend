@@ -32,17 +32,20 @@ function loadOrganizations() {
 
 function renderProject(project) {
     const item = $('<li>').addClass('project');
-    item.append($('<h2>').append($('<a>').attr('href', project.repo_url).attr('target', '_blank').text(project.name)));
+    const head = $('<div>').addClass('project-head');
+    head.append($('<h2>').append($('<a>').attr('href', project.repo_url).attr('target', '_blank').text(project.name)));
+    head.append($('<span>').addClass('stars').text('★ ' + project.stars.toLocaleString('uk-UA')));
+    item.append(head);
     if (project.description) {
         item.append($('<p>').addClass('description').text(project.description));
     }
-    const tags = $('<div>');
-    tags.append($('<span>').addClass('tag difficulty-' + project.difficulty).text(project.difficulty));
+    const tags = $('<div>').addClass('tags');
+    tags.append($('<span>').addClass('tag tag-difficulty difficulty-' + project.difficulty).text(project.difficulty));
     project.languages.forEach(id => {
         tags.append($('<span>').addClass('tag').text(languages[id]));
     });
     item.append(tags);
-    item.append($('<p>').addClass('meta').text('★ ' + project.stars + ' · ' + organizations[project.organization]));
+    item.append($('<p>').addClass('meta').text(organizations[project.organization]));
     return item;
 }
 
