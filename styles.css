@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f5f7;
+    color: #222;
+}
+
+header {
+    padding: 32px 16px 16px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 0;
+    color: #555;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px 32px;
+}
+
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+#filters input,
+#filters select,
+#filters button {
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+}
+
+#filters input {
+    flex: 1 1 200px;
+}
+
+#filters button {
+    background: #2d6cdf;
+    border-color: #2d6cdf;
+    color: #fff;
+    cursor: pointer;
+}
+
+.error {
+    color: #c0392b;
+}
+
+.count {
+    color: #555;
+}
+
+#projects {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.project {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.project h2 {
+    margin: 0 0 6px;
+    font-size: 20px;
+}
+
+.project h2 a {
+    color: inherit;
+}
+
+.project .description {
+    margin: 0 0 10px;
+    color: #444;
+}
+
+.project .meta {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.tag {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #e8eefc;
+    font-size: 13px;
+}
+
+.difficulty-beginner {
+    background: #dff3e4;
+}
+
+.difficulty-intermediate {
+    background: #fdf1d6;
+}
+
+.difficulty-advanced {
+    background: #f9dede;
+}

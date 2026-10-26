@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог open-source проєктів</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Каталог open-source проєктів</h1>
+        <p>Знайди проєкт під свою мову і просту задачу, з якої можна почати.</p>
+    </header>
+
+    <main>
+        <form id="filters">
+            <input type="text" id="search" placeholder="Пошук за назвою">
+            <select id="language">
+                <option value="">Усі мови</option>
+            </select>
+            <select id="difficulty">
+                <option value="">Будь-яка складність</option>
+                <option value="beginner">beginner</option>
+                <option value="intermediate">intermediate</option>
+                <option value="advanced">advanced</option>
+            </select>
+            <select id="ordering">
+                <option value="-stars">Спочатку популярні</option>
+                <option value="stars">Спочатку менш популярні</option>
+                <option value="name">За назвою А-Я</option>
+                <option value="-name">За назвою Я-А</option>
+            </select>
+            <button type="submit">Знайти</button>
+        </form>
+
+        <p class="error"></p>
+        <p class="count"></p>
+        <ul id="projects"></ul>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
