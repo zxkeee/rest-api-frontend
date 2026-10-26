@@ -31,22 +31,20 @@ function loadOrganizations() {
 }
 
 function renderProject(project) {
-    const item = $('<li>').addClass('project');
-    const head = $('<div>').addClass('project-head');
-    head.append($('<h2>').append($('<a>').attr('href', project.repo_url).attr('target', '_blank').text(project.name)));
-    head.append($('<span>').addClass('stars').text('★ ' + project.stars.toLocaleString('uk-UA')));
-    item.append(head);
+    const main = $('<div>').addClass('project-main');
+    main.append($('<h2>').append($('<a>').attr('href', project.repo_url).attr('target', '_blank').text(project.name)));
+    main.append($('<p>').addClass('repo').text(project.repo_url.replace('https://github.com/', '')));
     if (project.description) {
-        item.append($('<p>').addClass('description').text(project.description));
+        main.append($('<p>').addClass('description').text(project.description));
     }
-    const tags = $('<div>').addClass('tags');
-    tags.append($('<span>').addClass('tag tag-difficulty difficulty-' + project.difficulty).text(project.difficulty));
-    project.languages.forEach(id => {
-        tags.append($('<span>').addClass('tag').text(languages[id]));
-    });
-    item.append(tags);
-    item.append($('<p>').addClass('meta').text(organizations[project.organization]));
-    return item;
+    const projectLanguages = project.languages.map(id => languages[id]).join(', ');
+    main.append($('<p>').addClass('meta').text(projectLanguages + ' · ' + organizations[project.organization]));
+
+    const side = $('<div>').addClass('project-side');
+    side.append($('<p>').addClass('stars').text(project.stars + ' ★'));
+    side.append($('<p>').addClass('difficulty difficulty-' + project.difficulty).text(project.difficulty));
+
+    return $('<li>').addClass('project').append(main, side);
 }
 
 function loadProjects() {

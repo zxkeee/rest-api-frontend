@@ -1,16 +1,12 @@
 :root {
-    --bg: #0b0c0f;
-    --surface: #131519;
-    --surface-hover: #181b20;
-    --border: #23262d;
-    --border-strong: #33373f;
-    --text: #e8e9ec;
-    --muted: #8b8f98;
-    --accent: #7c8cff;
-    --error: #ff6b6b;
-    --beginner: #4ade80;
-    --intermediate: #fbbf24;
-    --advanced: #f87171;
+    --bg: #161616;
+    --line: #2a2a2a;
+    --field: #1e1e1e;
+    --text: #dcdcdc;
+    --muted: #8a8a8a;
+    --link: #e8e8e8;
+    --mark: #d7ff5f;
+    --mono: Consolas, "Cascadia Mono", Menlo, monospace;
     color-scheme: dark;
 }
 
@@ -20,252 +16,193 @@
 
 body {
     margin: 0;
-    font-family: Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 15px;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
 }
 
 header,
 main {
-    max-width: 1040px;
+    max-width: 820px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
 }
 
 header {
-    padding-top: 72px;
-    padding-bottom: 32px;
+    padding-top: 48px;
+    padding-bottom: 20px;
 }
 
 header h1 {
-    margin: 0 0 10px;
-    font-size: 40px;
+    margin: 0 0 6px;
+    font-size: 26px;
     font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+}
+
+header h1::before {
+    content: "> ";
+    color: var(--mark);
+    font-family: var(--mono);
 }
 
 header p {
     margin: 0;
-    max-width: 520px;
     color: var(--muted);
-    font-size: 17px;
 }
 
 main {
-    padding-bottom: 72px;
+    padding-bottom: 60px;
 }
 
 #filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
+    gap: 6px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 #filters input,
 #filters select,
 #filters button {
-    height: 42px;
-    padding: 0 14px;
+    height: 34px;
+    padding: 0 10px;
     font: inherit;
     font-size: 14px;
     color: var(--text);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    outline: none;
-    transition: border-color 0.15s, background 0.15s;
+    background: var(--field);
+    border: 1px solid var(--line);
+    border-radius: 3px;
 }
 
 #filters input {
-    flex: 1 1 240px;
-}
-
-#filters input::placeholder {
-    color: var(--muted);
-}
-
-#filters select {
-    cursor: pointer;
-}
-
-#filters input:hover,
-#filters select:hover {
-    border-color: var(--border-strong);
+    flex: 1 1 200px;
 }
 
 #filters input:focus,
 #filters select:focus {
-    border-color: var(--accent);
+    outline: 1px solid var(--mark);
+    outline-offset: -1px;
 }
 
 #filters button {
-    padding: 0 20px;
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--bg);
-    font-weight: 600;
+    color: #111;
+    background: var(--mark);
+    border-color: var(--mark);
     cursor: pointer;
 }
 
-#filters button:hover {
-    background: #ffffff;
-}
-
 .error {
-    margin: 0 0 16px;
-    color: var(--error);
-    font-size: 14px;
-}
-
-.error:empty,
-.count:empty {
-    display: none;
+    color: #ff7b72;
 }
 
 .count {
-    margin: 0 0 16px;
+    margin: 14px 0 0;
     color: var(--muted);
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
 }
 
 #projects {
     list-style: none;
-    padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 12px;
+    padding: 0;
 }
 
 .project {
     display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
 }
 
-.project:hover {
-    background: var(--surface-hover);
-    border-color: var(--border-strong);
-    transform: translateY(-2px);
-}
-
-.project-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 8px;
+.project-main {
+    flex: 1;
+    min-width: 0;
 }
 
 .project h2 {
     margin: 0;
     font-size: 17px;
     font-weight: 600;
-    letter-spacing: -0.01em;
 }
 
 .project h2 a {
-    color: var(--text);
+    color: var(--link);
     text-decoration: none;
 }
 
 .project h2 a:hover {
-    color: var(--accent);
+    text-decoration: underline;
+}
+
+.repo {
+    margin: 2px 0 8px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 13px;
+}
+
+.description {
+    margin: 0 0 8px;
+}
+
+.meta {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.project-side {
+    flex-shrink: 0;
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 13px;
 }
 
 .stars {
-    flex-shrink: 0;
-    color: var(--muted);
-    font-size: 13px;
-    font-variant-numeric: tabular-nums;
+    margin: 0 0 4px;
 }
 
-.project .description {
-    margin: 0 0 16px;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: auto;
-}
-
-.tag {
-    padding: 3px 9px;
-    border: 1px solid var(--border-strong);
-    border-radius: 999px;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.tag-difficulty {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.tag-difficulty::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: currentColor;
+.difficulty {
+    margin: 0;
 }
 
 .difficulty-beginner {
-    color: var(--beginner);
+    color: #7ee787;
 }
 
 .difficulty-intermediate {
-    color: var(--intermediate);
+    color: #e3b341;
 }
 
 .difficulty-advanced {
-    color: var(--advanced);
-}
-
-.project .meta {
-    margin: 16px 0 0;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 13px;
+    color: #ff7b72;
 }
 
 @media (max-width: 600px) {
-    header,
-    main {
-        padding: 0 16px;
-    }
-
     header {
-        padding-top: 40px;
-        padding-bottom: 24px;
-    }
-
-    header h1 {
-        font-size: 30px;
+        padding-top: 28px;
     }
 
     #filters select,
     #filters button {
-        flex: 1 1 calc(50% - 4px);
+        flex: 1 1 calc(50% - 3px);
     }
 
-    #projects {
-        grid-template-columns: 1fr;
+    .project {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .project-side {
+        display: flex;
+        gap: 14px;
+        text-align: left;
+    }
+
+    .stars {
+        margin: 0;
     }
 }
