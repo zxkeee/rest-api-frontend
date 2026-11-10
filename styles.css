@@ -186,6 +186,174 @@ main {
     color: #ff7b72;
 }
 
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    font-size: 14px;
+}
+
+.nav-links,
+.nav-account {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#nav a,
+.link-button {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+#nav a:hover,
+.link-button:hover {
+    color: var(--text);
+}
+
+.nav-user {
+    color: var(--mark);
+    font-family: var(--mono);
+}
+
+.link-button {
+    padding: 0;
+    font: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.danger:hover {
+    color: #ff7b72;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 380px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.form input,
+.form select,
+.form button {
+    height: 34px;
+    padding: 0 10px;
+    font: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--field);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+}
+
+.form input:focus,
+.form select:focus {
+    outline: 1px solid var(--mark);
+    outline-offset: -1px;
+}
+
+.form button {
+    align-self: flex-start;
+    padding: 0 18px;
+    color: #111;
+    background: var(--mark);
+    border-color: var(--mark);
+    cursor: pointer;
+}
+
+.field-error {
+    color: #ff7b72;
+}
+
+.field-error:empty,
+.form .error:empty {
+    display: none;
+}
+
+.form .error {
+    margin: 0;
+}
+
+.form-note {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.form-note a {
+    color: var(--link);
+}
+
+.panel {
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+}
+
+.panel h2 {
+    margin: 0 0 14px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.panel .form {
+    padding: 0;
+    border-top: 0;
+}
+
+#profile {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 6px 20px;
+    margin: 0;
+}
+
+#profile dt {
+    color: var(--muted);
+}
+
+#profile dd {
+    margin: 0;
+    font-family: var(--mono);
+}
+
+.admin-note {
+    color: var(--mark);
+    font-size: 13px;
+}
+
+#issues {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.issue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.issue-title {
+    margin: 0 0 2px;
+}
+
 @media (max-width: 600px) {
     header {
         padding-top: 28px;

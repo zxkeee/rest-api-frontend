@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кабінет</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav id="nav"></nav>
+        <h1>
+            <svg class="logo" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M6 9l3 3-3 3"/>
+                <path d="M12 15h5"/>
+            </svg>
+            Кабінет
+        </h1>
+        <p>Сторінка тільки для залогінених користувачів.</p>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>Профіль</h2>
+            <dl id="profile"></dl>
+        </section>
+
+        <section class="panel">
+            <h2>Додати задачу</h2>
+            <form id="issue-form" class="form" novalidate>
+                <label>
+                    Проєкт
+                    <select name="project" id="issue-project"></select>
+                    <span class="field-error" data-field="project"></span>
+                </label>
+                <label>
+                    Назва задачі
+                    <input type="text" name="title" maxlength="200" required>
+                    <span class="field-error" data-field="title"></span>
+                </label>
+                <label>
+                    Складність
+                    <select name="difficulty">
+                        <option value="beginner">beginner</option>
+                        <option value="intermediate">intermediate</option>
+                        <option value="advanced">advanced</option>
+                    </select>
+                    <span class="field-error" data-field="difficulty"></span>
+                </label>
+                <p class="error"></p>
+                <button type="submit">Додати</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Останні задачі</h2>
+            <p class="admin-note" hidden>Ти адмін, тому можеш видаляти задачі.</p>
+            <p class="error" id="issues-error"></p>
+            <ul id="issues"></ul>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/profile.js"></script>
+</body>
+</html>
