@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav id="nav"></nav>
+        <h1>
+            <svg class="logo" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M6 9l3 3-3 3"/>
+                <path d="M12 15h5"/>
+            </svg>
+            Реєстрація
+        </h1>
+        <p>Пароль від 8 символів, не з самих цифр і не схожий на username.</p>
+    </header>
+
+    <main>
+        <form id="register-form" class="form" novalidate>
+            <label>
+                Username
+                <input type="text" name="username" autocomplete="username" required>
+                <span class="field-error" data-field="username"></span>
+            </label>
+            <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required>
+                <span class="field-error" data-field="email"></span>
+            </label>
+            <label>
+                Імʼя (необовʼязково)
+                <input type="text" name="first_name" autocomplete="given-name">
+                <span class="field-error" data-field="first_name"></span>
+            </label>
+            <label>
+                Прізвище (необовʼязково)
+                <input type="text" name="last_name" autocomplete="family-name">
+                <span class="field-error" data-field="last_name"></span>
+            </label>
+            <label>
+                Пароль
+                <input type="password" name="password" autocomplete="new-password" required>
+                <span class="field-error" data-field="password"></span>
+            </label>
+            <label>
+                Повтори пароль
+                <input type="password" name="password_confirm" autocomplete="new-password" required>
+                <span class="field-error" data-field="password_confirm"></span>
+            </label>
+            <p class="error"></p>
+            <button type="submit">Зареєструватися</button>
+            <p class="form-note">Вже є акаунт? <a href="login.html">Увійти</a></p>
+        </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/register.js"></script>
+</body>
+</html>
