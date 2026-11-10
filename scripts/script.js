@@ -1,16 +1,8 @@
-const API_URL = 'http://127.0.0.1:8000/api/v1/';
-
 let languages = {};
 let organizations = {};
 
 function showError(xhr) {
-    if (xhr.status === 0) {
-        $('.error').text('Не вдалося підключитися до API. Перевірте, що бекенд запущений на http://127.0.0.1:8000.');
-    } else if (xhr.responseJSON && xhr.responseJSON.detail) {
-        $('.error').text(xhr.responseJSON.detail);
-    } else {
-        $('.error').text('Помилка ' + xhr.status + '.');
-    }
+    $('.error').text(errorText(xhr));
 }
 
 function loadLanguages() {
